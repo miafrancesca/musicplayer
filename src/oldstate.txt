@@ -1,0 +1,110 @@
+import React, { Component } from 'react';
+import purelove from './music-library/purelove.mp3';
+import takeyourtime from './music-library/takeyourtime.mp3';
+import tryzouk from './music-library/try.mp3';
+import eraumavez from './music-library/eraumavez.mp3';
+import apologize from './music-library/apologize.mp3';
+import howtosavealife from './music-library/howtosavealife.mp3';
+import yousoundgood from './music-library/yousoundgood.mp3';
+import badthings from './music-library/badthings.mp3';
+
+import './App.css';
+
+function tagsFromSongList(songs) {
+  var tags = [];
+  for (var i = 0; i < songs.length; i++) { 
+    for (var j = 0; j < songs[i].tags.length; j++) {
+      if (!tags.includes(songs[i].tags[j])) {
+        tags.push(songs[i].tags[j]);
+      }
+    }
+  }
+  return tags;
+}
+
+const song_list = [
+  {
+    name: "Apologize by One Republic",
+    source: apologize,
+    tags: ["pop", "zoukable", "moody"],
+  },
+  {
+    name: "How to Save a Life",
+    source: howtosavealife,
+    tags: ["pop", "moody"],
+  },
+  {
+    name: "You Sound Good to Me by Lucy Hale",
+    source: yousoundgood,
+    tags: ["country", "happy"],
+  },
+  {
+    name: "Bad Things by MGK & Camila Cabello",
+    source: badthings,
+    tags: ["pop", "moody"],
+  },
+  {
+    name: "Pure Love by Arash ft. Helena",
+    source: purelove,
+    tags: ["pop", "zouk", "happy"],
+  },
+  {
+    name: "Take Your Time - Kizomba Remix",
+    source: takeyourtime,
+    tags: ["pop", "zouk", "country", "chillout"],
+  },
+  {
+    name: "Try - Zouk Remix",
+    source: tryzouk,
+    tags: ["pop", "zouk"],
+  },
+  {
+    name: "Era Uma Vez - Zouk Remix",
+    source: eraumavez,
+    tags: ["pop", "zouk", "chillout", "happy"],
+  },
+  {
+    name: "Haydn Cello Concerto in D",
+    source: "http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3",
+    tags: ["cello", "classical"],
+  },
+  {
+    name: "Tchaikovsky Rococo Variations",
+    source: "http://www.hochmuth.com/mp3/Tchaikovsky_Rococo_Var_orch.mp3",
+    tags: ["classical", "orchestral"]
+  }, {
+    name: "Vivaldi Sonata in E Minor",
+    source: "http://www.hochmuth.com/mp3/Vivaldi_Sonata_eminor_.mp3",
+    tags: ["classical"]
+  },
+  {
+    name: "Tchaikovsky Nocturne",
+    source: "http://www.hochmuth.com/mp3/Tchaikovsky_Nocturne__orch.mp3",
+    tags: ["classical", "orchestral", "sleepy"]
+  },
+  {
+    name: "Haydn Adagio",
+    source: "http://www.hochmuth.com/mp3/Haydn_Adagio.mp3",
+    tags: ["classical"]
+  }, {
+    name: "Boccherini Concerto",
+    source: "http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3",
+    tags: ["classical"]
+  }, {
+    name: "Bloch Prayer",
+    source: "http://www.hochmuth.com/mp3/Bloch_Prayer.mp3",
+    tags: ["sleepy", "classical"]
+  }, {
+    name: "Beethoven Variations",
+    source: "http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3",
+    tags: ["classical"]
+  }
+];
+
+const initial_state = {
+  songs: song_list,
+  tags: tagsFromSongList(song_list), //['cello', 'classical', 'orchestral', 'sleepy', 'pop', 'zouk', 'happy', 'country', 'chillout', 'moody', 'zoukable'],
+  active_selectors: [],
+  queue: [],
+  upNext: []
+};
